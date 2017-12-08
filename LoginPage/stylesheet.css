@@ -21,9 +21,12 @@ body{
 	width: 300px;
 	height: 325px;
 	position: absolute;
-	box-shadow: inset 0 0 0 300px rgba(255,255,255,0.4);
-	filter: blur(10px);
 	margin-left: -25px;
+	
+	animation-name: fade;
+	animation-duration: 1s;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
 }
 
 .login-box{
@@ -54,8 +57,11 @@ body{
 	display: block;
 	width: 100px;
 	height: 100px;
-	background-color: #FFF;
+	background-image: url(stockphoto.png);
+	background-size: contain;
 	border-radius: 50%;
+	animation-name: spin;
+	animation-duration: 1s;
 }
 
 .login-form label{
@@ -68,6 +74,22 @@ body{
 	border-radius: 2px;
 	border: 0;
 	opacity: 0.6;
+}
+
+@keyframes spin{
+	from {transform: rotate(0deg);}
+	to {transform: rotate(360deg);}
+}
+
+@keyframes fade{
+	from{
+		box-shadow: inset 0 0 0 0px rgba(255,255,255,0.4);
+		filter: blur(0px);
+	}
+	to{
+		box-shadow: inset 0 0 0 300px rgba(255,255,255,0.4);
+		filter: blur(10px);
+	}
 }
 
 
