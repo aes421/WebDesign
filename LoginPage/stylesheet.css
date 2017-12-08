@@ -14,19 +14,6 @@ body{
 	height: 100%;
 }
 
-
-/*.login-box:before{
-	background: inherit;
-	content: '';
-	width: 300px;
-	height: 325px;
-	position: absolute;
-	margin-left: -25px;
-	
-	box-shadow: inset 0 0 0 300px rgba(255,255,255,0.4);
-	filter: blur(10px);
-}*/
-
 .glass{
 	background: inherit;
 	content: '';
@@ -69,7 +56,7 @@ body{
 #userlabel{
 	color: #FFF;
 	opacity: 0;
-	transition: opacity 1s ease-in 2.5s;
+	transition: opacity 1s ease-in 1.5s;
 }
 
 #passwordbox{
@@ -78,7 +65,7 @@ body{
 	border-radius: 2px;
 	border: 0;
 	opacity: 0;
-	transition: opacity 1s ease-in 2.5s;
+	transition: opacity 1s ease-in 1.5s;
 }
 
 .spin-animation{
@@ -89,12 +76,8 @@ body{
 .fade-animation{
 	animation-name: fade;
 	animation-duration: 2s;
-	animation-delay: 1s;
+	animation-delay: 0.2s;
 	animation-fill-mode: forwards;
-}
-
-.field-transitions{
-	transition: display 2s linear 1s;
 }
 
 @keyframes spin{
@@ -110,6 +93,8 @@ body{
 		left: 50%;
 		width: 0;
 		height: 0;
+		margin-top: 0px;
+		margin-left: 0px;
 	}
 	to{
 		box-shadow: inset 0 0 0 300px rgba(255,255,255,0.4);
@@ -118,6 +103,8 @@ body{
 		left: calc(50% - 125px);
 		width: 300px;
 		height: 325px;
+		margin-top: -25px;
+		margin-left: -25px;
 	}
 }
 
