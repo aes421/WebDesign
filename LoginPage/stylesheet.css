@@ -15,7 +15,7 @@ body{
 }
 
 
-.login-box:before{
+/*.login-box:before{
 	background: inherit;
 	content: '';
 	width: 300px;
@@ -23,10 +23,14 @@ body{
 	position: absolute;
 	margin-left: -25px;
 	
-	animation-name: fade;
-	animation-duration: 1s;
-	animation-delay: 1s;
-	animation-fill-mode: forwards;
+	box-shadow: inset 0 0 0 300px rgba(255,255,255,0.4);
+	filter: blur(10px);
+}*/
+
+.glass{
+	background: inherit;
+	content: '';
+	position: absolute;
 }
 
 .login-box{
@@ -60,20 +64,37 @@ body{
 	background-image: url(stockphoto.png);
 	background-size: contain;
 	border-radius: 50%;
-	animation-name: spin;
-	animation-duration: 1s;
 }
 
-.login-form label{
+#userlabel{
 	color: #FFF;
+	opacity: 0;
+	transition: opacity 1s ease-in 2.5s;
 }
 
-.login-form input{
+#passwordbox{
 	width: 130px;
 	height: 20px;
 	border-radius: 2px;
 	border: 0;
-	opacity: 0.6;
+	opacity: 0;
+	transition: opacity 1s ease-in 2.5s;
+}
+
+.spin-animation{
+	animation-name: spin;
+	animation-duration: 1s;
+}
+
+.fade-animation{
+	animation-name: fade;
+	animation-duration: 2s;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+}
+
+.field-transitions{
+	transition: display 2s linear 1s;
 }
 
 @keyframes spin{
@@ -85,10 +106,18 @@ body{
 	from{
 		box-shadow: inset 0 0 0 0px rgba(255,255,255,0.4);
 		filter: blur(0px);
+		top: 50%;
+		left: 50%;
+		width: 0;
+		height: 0;
 	}
 	to{
 		box-shadow: inset 0 0 0 300px rgba(255,255,255,0.4);
 		filter: blur(10px);
+		top: calc(50% - 137.5px);
+		left: calc(50% - 125px);
+		width: 300px;
+		height: 325px;
 	}
 }
 

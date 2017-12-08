@@ -7,15 +7,31 @@
 	</head>
 	<body>
 		<div class="login-box">
+			<span class="glass"></span>
 			<div class="login-form">
-				<span class="user-icon">
-				</span>
-				<label>Ashley</label>
-				<input type="password" required>
+				<span class="user-icon"></span>
+				<label id="userlabel">Ashley</label>
+				<input id="passwordbox" type="password" required>
 			</div>
 		</div>
 	</body>
 
 	<script>
+
+		var icon = document.querySelector(".user-icon");
+		icon.addEventListener("click", openUser);
+
+		var glass = document.querySelector(".glass");
+		var label = document.querySelector("#userlabel");
+		var password = document.querySelector("#passwordbox");
+
+		function openUser(evt){
+			icon.classList.toggle("spin-animation");
+			glass.classList.toggle("fade-animation");
+
+			label.style.opacity = "1";
+			password.style.opacity = "0.6";
+
+		}
 	</script>
 </html>
