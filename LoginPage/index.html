@@ -26,11 +26,13 @@
 		var password = document.querySelector("#passwordbox");
 
 		function openUser(evt){
-			icon.classList.toggle("spin-animation");
-			glass.classList.toggle("fade-animation");
+			//icon.classList.toggle("spin-animation");
+			glass.classList.toggle("fadein");
 
-			label.style.opacity = "1";
-			password.style.opacity = "0.6";
+            label.style.opacity === "0" || label.style.opacity === "" ?
+                label.style.opacity = "1" : label.style.opacity = "0";
+			password.style.opacity === "0" || password.style.opacity === "" ?
+                password.style.opacity = "0.6" : password.style.opacity = "0";
 
 		}
 	</script>
