@@ -8,32 +8,74 @@
 	<body>
 		<div class="login-box">
 			<span class="glass"></span>
-			<div class="login-form">
-				<span class="user-icon"></span>
-				<label id="userlabel">Ashley</label>
-				<input id="passwordbox" type="password" required>
-			</div>
+            <div class="forms">
+                <!--Example Form-->
+    			<!-- <div class="login-form">
+                    <span class="user-icon"></span>
+        		    <label id="userlabel">Ashley</label>
+        		    <input id="passwordbox" type="password" required>
+    			</div> -->
+            </div>
 		</div>
 	</body>
 
 	<script>
 
-		var icon = document.querySelector(".user-icon");
-		icon.addEventListener("click", openUser);
+    var users = ['Bob', 'Sally', 'Ashley', 'Sue'];
+    var html = "";
 
-		var glass = document.querySelector(".glass");
-		var label = document.querySelector("#userlabel");
-		var password = document.querySelector("#passwordbox");
+    //each users icon is 120px and we need to find the center
+    var spacing = (users.length * 120)/2;
+    document.documentElement.style.setProperty("--spacing",
+    `${spacing}px`);
 
-		function openUser(evt){
-			//icon.classList.toggle("spin-animation");
-			glass.classList.toggle("fadein");
+    var userList = document.querySelector('.forms');
 
-            label.style.opacity === "0" || label.style.opacity === "" ?
-                label.style.opacity = "1" : label.style.opacity = "0";
-			password.style.opacity === "0" || password.style.opacity === "" ?
-                password.style.opacity = "0.6" : password.style.opacity = "0";
+    //creates an icon for each users in the array
+    for (var i=0; i < users.length; i++){
+        html += `<div class="login-form">
+                    <span class="user-icon"></span>
+                    <label id="userlabel">${users[i]}</label>
+                    <input id="passwordbox" type="password" required>
+                </div>`;
+    }
+    userList.innerHTML = html;
 
-		}
+    //set click listeners on all the icons
+	var icons = document.querySelectorAll(".user-icon");
+	icons.forEach(icon =>  icon.addEventListener("click", openUser));
+
+    //Everything below is for the chosen user
+	var glass = document.querySelector(".glass");
+	// var label = document.querySelector("#userlabel");
+	// var password = document.querySelector("#passwordbox");
+
+	function openUser(evt){
+        var label;
+        var password;
+        for (var i=0; i < icons.length; i++){
+            if (icons[i] !== this){
+                //icons[i].style.setProperty("opacity", "0");
+                icons[i].style.setProperty("display", "none");
+            }else{
+                var icon = this;
+                this.parentElement.childNodes.forEach(child => {
+                    if (child.id === "userlabel"){
+                        label = child;
+                    }
+                    else if(child.id === "passwordbox"){
+                        password = child;
+                    }
+                })
+            }
+        }
+		icon.classList.toggle("spin-animation");
+		glass.classList.toggle("fadein");
+
+        label.style.opacity === "0" || label.style.opacity === "" ?
+            label.style.opacity = "1" : label.style.opacity = "0";
+		password.style.opacity === "0" || password.style.opacity === "" ?
+            password.style.opacity = "0.6" : password.style.opacity = "0";
+	}
 	</script>
 </html>

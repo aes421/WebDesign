@@ -1,3 +1,7 @@
+:root{
+    --spacing: 0px;
+}
+
 *
 {
     margin: 0;
@@ -17,6 +21,10 @@ body
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+.forms{
+    display: flex;
 }
 
 .glass
@@ -41,14 +49,15 @@ body
 
 .login-box
 {
-    position: fixed;
+    position: absolute;
     top: calc(50% - 137.5px);
-    left: calc(50% - 125px);
+    left: calc(50% - var(--spacing));
 
+    display: flex;
     overflow: hidden;
 
-    width: 250px;
-    height: 275px;
+    /*width: 250px;
+    height: 275px;*/
 
     border-radius: 5px;
     background: inherit;
@@ -79,15 +88,17 @@ body
 
     width: 100px;
     height: 100px;
+    margin: 10px;
 
     border-radius: 50%;
     background-image: url(stockphoto.png);
     background-size: contain;
+    transition: opacity 0.5s linear;
 }
 
 #userlabel
 {
-    transition: opacity 1s linear 0.5s;
+    transition: opacity 1s linear .5s;
 
     opacity: 0;
     color: #fff;
@@ -98,7 +109,7 @@ body
     width: 130px;
     height: 20px;
 
-    transition: opacity 1s linear 0.5s;
+    transition: opacity 1s linear .5s;
 
     opacity: 0;
     border: 0;
