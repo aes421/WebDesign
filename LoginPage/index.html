@@ -56,7 +56,8 @@
         for (var i=0; i < icons.length; i++){
             if (icons[i] !== this){
                 //icons[i].style.setProperty("opacity", "0");
-                icons[i].style.setProperty("display", "none");
+                icons[i].classList.toggle("fadeout");
+                //icons[i].style.setProperty("display", "none");
             }else{
                 var icon = this;
                 this.parentElement.childNodes.forEach(child => {
