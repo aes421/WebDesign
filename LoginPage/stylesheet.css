@@ -34,6 +34,7 @@ body
     height: 275px;
 
     align-items: center;
+    justify-content: center;
 }
 
 .glass
@@ -58,6 +59,8 @@ body
 
 .login-box
 {
+    position: absolute;
+
     display: flex;
     overflow: hidden;
 
@@ -75,8 +78,6 @@ body
     display: flex;
     flex-direction: column;
 
-    padding-top: 50px;
-
     align-items: center;
 }
 
@@ -93,7 +94,7 @@ body
 
     width: 100px;
     height: 100px;
-    margin: 10px;
+    margin: 25px;
 
     transition: opacity .5s linear;
 
