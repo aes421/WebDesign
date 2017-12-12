@@ -20,7 +20,6 @@
 	</body>
 
 	<script>
-
     var users = ['Bob', 'Sally', 'Ashley', 'Sue'];
     var html = "";
 
@@ -42,18 +41,17 @@
 
     //Everything below is for the chosen user
 	var glass = document.querySelector(".glass");
-	// var label = document.querySelector("#userlabel");
-	// var password = document.querySelector("#passwordbox");
 
 	function openUser(evt){
         var label;
         var password;
         for (var i=0; i < icons.length; i++){
+            //hide the ones that weren't chosen
             if (icons[i] !== this){
-                //icons[i].style.setProperty("opacity", "0");
-                icons[i].parentElement.classList.toggle("fadeout");
-                //icons[i].style.setProperty("display", "none");
-            }else{
+                icons[i].parentElement.classList.toggle("fade-to-none-animation");
+            }
+            //setup chosen one
+            else{
                 var icon = this;
                 this.parentElement.childNodes.forEach(child => {
                     if (child.id === "userlabel"){
@@ -66,7 +64,7 @@
             }
         }
 		icon.classList.toggle("spin-animation");
-		glass.classList.toggle("fadein");
+		glass.classList.toggle("glass-fade");
 
         label.style.opacity === "0" || label.style.opacity === "" ?
             label.style.opacity = "1" : label.style.opacity = "0";

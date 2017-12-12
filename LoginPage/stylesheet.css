@@ -78,7 +78,14 @@ body
     display: flex;
     flex-direction: column;
 
+    transition: all .6s linear;
+
     align-items: center;
+    opacity: 0;
+    animation-name: none-to-fade;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
 }
 
 .login-form > *
@@ -95,8 +102,6 @@ body
     width: 100px;
     height: 100px;
     margin: 25px;
-
-    transition: opacity .5s linear;
 
     border-radius: 50%;
     background-image: url(stockphoto.png);
@@ -129,7 +134,14 @@ body
     animation-duration: 1s;
 }
 
-.fadein
+.fade-to-none-animation{
+    animation-name: fade-to-none;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.glass-fade
 {
     top: calc(50% - 137.5px);
     left: calc(50% - 125px);
@@ -144,9 +156,9 @@ body
     filter: blur(10px);
 }
 
-.fadeout
+.loginform-fade
 {
-    display: none;
+    opacity: 0;
 }
 
 @keyframes spin
@@ -158,5 +170,61 @@ body
     to
     {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes fade-to-none
+{
+    0%
+    {
+        position: flex;
+
+        visibility: visible;
+
+        opacity: 1;
+    }
+    75%
+    {
+        position: flex;
+
+        visibility: visible;
+
+        opacity: 0;
+    }
+    100%
+    {
+        position: absolute;
+
+        visibility: hidden;
+
+        opacity: 0;
+    }
+}
+
+@keyframes none-to-fade {
+    0%{
+        {
+            position: absolute;
+
+            visibility: hidden;
+
+            opacity: 0;
+        }
+    }
+    25%
+    {
+        position: flex;
+
+        visibility: visible;
+
+        opacity: 0;
+    }
+    100%
+    {
+        position: flex;
+
+        visibility: visible;
+
+        opacity: 1;
     }
 }
