@@ -24,11 +24,6 @@
     var users = ['Bob', 'Sally', 'Ashley', 'Sue'];
     var html = "";
 
-    //each users icon is 120px and we need to find the center
-    var spacing = (users.length * 120)/2;
-    document.documentElement.style.setProperty("--spacing",
-    `${spacing}px`);
-
     var userList = document.querySelector('.forms');
 
     //creates an icon for each users in the array
@@ -56,7 +51,7 @@
         for (var i=0; i < icons.length; i++){
             if (icons[i] !== this){
                 //icons[i].style.setProperty("opacity", "0");
-                icons[i].classList.toggle("fadeout");
+                icons[i].parentElement.classList.toggle("fadeout");
                 //icons[i].style.setProperty("display", "none");
             }else{
                 var icon = this;
