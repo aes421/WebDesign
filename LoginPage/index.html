@@ -27,7 +27,7 @@
 
     //creates an icon for each users in the array
     for (var i=0; i < users.length; i++){
-        html += `<div class="login-form">
+        html += `<div class="login-form none-to-fade-animation">
                     <span class="user-icon"></span>
                     <label id="userlabel">${users[i]}</label>
                     <input id="passwordbox" type="password" required>
@@ -49,6 +49,7 @@
             //hide the ones that weren't chosen
             if (icons[i] !== this){
                 icons[i].parentElement.classList.toggle("fade-to-none-animation");
+                icons[i].parentElement.classList.toggle("none-to-fade-animation");
             }
             //setup chosen one
             else{

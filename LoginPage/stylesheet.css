@@ -77,15 +77,16 @@ body
 
     display: flex;
     flex-direction: column;
+    flex: 1;
 
     transition: all .6s linear;
 
     align-items: center;
-    opacity: 0;
+    /*opacity: 0;
     animation-name: none-to-fade;
     animation-duration: 1s;
     animation-delay: 0.5s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: forwards;*/
 }
 
 .login-form > *
@@ -141,6 +142,13 @@ body
     animation-fill-mode: forwards;
 }
 
+.none-to-fade-animation{
+    animation-name: none-to-fade;
+    animation-duration: 1s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
 .glass-fade
 {
     top: calc(50% - 137.5px);
@@ -181,7 +189,9 @@ body
 
         visibility: visible;
 
-        opacity: 1;
+        /*opacity: 1;*/
+        flex: 1;
+
     }
     75%
     {
@@ -189,7 +199,9 @@ body
 
         visibility: visible;
 
-        opacity: 0;
+        /*opacity: 0;*/
+        flex: 0.00001;
+
     }
     100%
     {
@@ -197,7 +209,9 @@ body
 
         visibility: hidden;
 
-        opacity: 0;
+        /*opacity: 0;*/
+        flex: 0.00001;
+
     }
 }
 
@@ -208,7 +222,9 @@ body
 
             visibility: hidden;
 
-            opacity: 0;
+            /*opacity: 0;*/
+            flex: 0.00001;
+
         }
     }
     25%
@@ -217,7 +233,9 @@ body
 
         visibility: visible;
 
-        opacity: 0;
+        /*opacity: 0;*/
+        flex: 0.00001;
+
     }
     100%
     {
@@ -225,6 +243,8 @@ body
 
         visibility: visible;
 
-        opacity: 1;
+        /*opacity: 1;*/
+        flex: 1;
+
     }
 }
