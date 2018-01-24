@@ -27,11 +27,16 @@
 
     //creates an icon for each users in the array
     for (var i=0; i < users.length; i++){
-        html += `<div class="login-form none-to-fade-animation">
+    	html += `<div class="login-form">
                     <span class="user-icon"></span>
                     <label id="userlabel">${users[i]}</label>
                     <input id="passwordbox" type="password" required>
                 </div>`;
+        // html += `<div class="login-form none-to-fade-animation">
+        //             <span class="user-icon"></span>
+        //             <label id="userlabel">${users[i]}</label>
+        //             <input id="passwordbox" type="password" required>
+        //         </div>`;
     }
     userList.innerHTML = html;
 
@@ -48,8 +53,8 @@
         for (var i=0; i < icons.length; i++){
             //hide the ones that weren't chosen
             if (icons[i] !== this){
+            	//icons[i].parentElement.classList.toggle("none-to-fade-animation");
                 icons[i].parentElement.classList.toggle("fade-to-none-animation");
-                icons[i].parentElement.classList.toggle("none-to-fade-animation");
             }
             //setup chosen one
             else{
@@ -64,7 +69,7 @@
                 })
             }
         }
-		icon.classList.toggle("spin-animation");
+		//icon.classList.toggle("spin-animation");
 		glass.classList.toggle("glass-fade");
 
         label.style.opacity === "0" || label.style.opacity === "" ?
