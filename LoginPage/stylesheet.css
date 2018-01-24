@@ -130,11 +130,6 @@ body
     border-radius: 2px;
 }
 
-.spin-animation
-{
-    animation-name: spin;
-    animation-duration: 1s;
-}
 
 .fade-to-none-animation{
     animation-name: fade-to-none;
@@ -142,11 +137,6 @@ body
     animation-fill-mode: forwards;
 }
 
-.none-to-fade-animation{
-    animation-name: none-to-fade;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
 
 .glass-fade
 {
