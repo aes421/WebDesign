@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -38,37 +41,48 @@
     //set click listeners on all the icons
 	var icons = document.querySelectorAll(".user-icon");
 	icons.forEach(icon =>  icon.addEventListener("click", openUser));
-
+	icons.forEach(icon =>  icon.parentElement.addEventListener("animationend", animationend));
+	icons.forEach(icon =>  icon.parentElement.addEventListener("animationstart", animationstart));
     //Everything below is for the chosen user
 	var glass = document.querySelector(".glass");
+	var transitioning = false;
 
+	function animationend(evt){
+		transitioning = false;
+	}
+	function animationstart(evt){
+		transitioning = true;
+	}
 	function openUser(evt){
         var label;
         var password;
-        for (var i=0; i < icons.length; i++){
-            //hide the ones that weren't chosen
-            if (icons[i] !== this){
-                icons[i].parentElement.classList.toggle("fade-to-none-animation");
-            }
-            //setup chosen one
-            else{
-                var icon = this;
-                this.parentElement.childNodes.forEach(child => {
-                    if (child.id === "userlabel"){
-                        label = child;
-                    }
-                    else if(child.id === "passwordbox"){
-                        password = child;
-                    }
-                })
-            }
-        }
-		glass.classList.toggle("glass-fade");
 
-        label.style.opacity === "0" || label.style.opacity === "" ?
-            label.style.opacity = "1" : label.style.opacity = "0";
-		password.style.opacity === "0" || password.style.opacity === "" ?
-            password.style.opacity = "0.6" : password.style.opacity = "0";
+        if (transitioning === false){
+	        for (var i=0; i < icons.length; i++){
+	            //hide the ones that weren't chosen
+	            if (icons[i] !== this){
+	                icons[i].parentElement.classList.toggle("fade-to-none-animation");
+	            }
+	            //setup chosen one
+	            else{
+	                var icon = this;
+	                this.parentElement.childNodes.forEach(child => {
+	                    if (child.id === "userlabel"){
+	                        label = child;
+	                    }
+	                    else if(child.id === "passwordbox"){
+	                        password = child;
+	                    }
+	                })
+	            }
+	        }
+			glass.classList.toggle("glass-fade");
+
+	        label.style.opacity === "0" || label.style.opacity === "" ?
+	            label.style.opacity = "1" : label.style.opacity = "0";
+			password.style.opacity === "0" || password.style.opacity === "" ?
+	            password.style.opacity = "0.6" : password.style.opacity = "0";
+	    }
 	}
 	</script>
 </html>
