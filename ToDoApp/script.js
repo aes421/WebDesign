@@ -23,7 +23,21 @@ function loadList(items){
 	list.innerHTML = "";
 	items.forEach(function(item){
 		var element = document.createElement('li');
+		element.id = item.key;
+		var checkbox = document.createElement('input');
+		checkbox.type = "checkbox";
+		checkbox.id = "checkbox";
+		checkbox.checked = item.complete;
+		checkbox.addEventListener('change', changeState);
+		element.appendChild(checkbox);
 		element.appendChild(document.createTextNode(item.text));
 		list.append(element);
 	});
+}
+
+function changeState(evt){
+	var key = evt.target.parentElement.id;
+	var value = evt.target.checked;
+	items[key].complete = value;
+	console.log(items);
 }
