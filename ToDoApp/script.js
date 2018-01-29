@@ -1,6 +1,6 @@
 //Mock data
-var text = '{ "items" : [ { "key": 0, "text": "Test", "complete": false }, { "key": 1, "text": "123", "complete": false }] }';
-var items = JSON.parse(text).items;
+//var text = '{ "items" : [ { "key": 0, "text": "Test", "complete": false }, { "key": 1, "text": "123", "complete": false }] }';
+var items = []//JSON.parse(text).items;
 
 document.addEventListener("DOMContentLoaded", function(event) {
    loadList();
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function addItem(){
 	//read the box, create new item, and append it to the list
 	var newItemText = document.getElementById("textbox").value;
-	var newItem = { "key": items[items.length - 1].key + 1, "text": newItemText, "complete": false };
+	var newItem = { "key": Date.now().toString(), "text": newItemText, "complete": false };
 	items.push(newItem);
 	//reload the list and clear the input value
 	loadList();
@@ -52,13 +52,26 @@ function loadList(){
 }
 
 function changeState(evt){
-	var key = evt.target.parentElement.id;
 	var value = evt.target.checked;
-	items[key].complete = value;
+	for (var i = 0; i < items.length; i++){
+		if (items[i].key === evt.target.parentElement.id){
+			items[i].complete = value;
+			break;
+		}
+	}
 	loadList();
 }
 
 function deleteTask(evt){
-	items.splice(evt.target.parentElement.id, 1);
+	var index;
+	for (var i = 0; i < items.length; i++){
+		if (items[i].key === evt.target.parentElement.id){
+			index = i;
+			break;
+		}
+	}
+	if (index > -1){
+		items.splice(index, 1);
+	}
 	loadList();
 }
